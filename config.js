@@ -33,7 +33,7 @@ var slackbot = new slackbot.Bot(config);
 slackbot.listen();
 
 app.post('/slack-message', function(req, res) {
-  console.log("Message received", req.body.user_name);
+  console.log("Message received", req.body);
   if (req.body.user_name !== config.nick && req.body.user_name !== config.username)  {
     var text = req.body.text;
     slackbot.post(req.body.user_name, text);

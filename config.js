@@ -24,7 +24,8 @@ var config = {
     token: process.env.SLACK_TOKEN,
     channel: '#auth0test',
     users: {
-        'Gonto': 'gonto'
+        'gonto': 'gonto',
+        'yenkel': 'yenkel'
     }
 };
 

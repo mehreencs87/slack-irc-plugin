@@ -22,7 +22,7 @@ var config = {
     nick: 'slackbot',
     username: 'slackbot',
     token: process.env.SLACK_TOKEN,
-    channel: '#auth0test',
+    channel: '#auth0',
     users: ['gonto', 'yenkel', 'woloski', 'eugeniop', 'cristiandouce', 'jose',
     'pose', 'ricardorauch']
 };

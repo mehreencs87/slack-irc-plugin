@@ -24,7 +24,7 @@ var config = {
     token: process.env.SLACK_TOKEN,
     channel: '#auth0test',
     users: {
-        'ElGonto': 'gonto'
+        'Gonto': 'gonto'
     }
 };
 
@@ -33,9 +33,10 @@ slackbot.listen();
 
 app.post('/slack-message', function(req, res) {
   console.log("Message received");
-  console.log(req.body.user_name);
-  var text = req.body.text;
-  slackbot.post(req.body.user_name, text);
+  if (req.body.user_name !== config.nick && req.body.user_name !== config.username)  {
+    var text = req.body.text;
+    slackbot.post(req.body.user_name, text);
+  }
   res.send(200);
 });
 

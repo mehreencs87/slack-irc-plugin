@@ -23,8 +23,7 @@ var config = {
     username: 'slackbot',
     token: process.env.SLACK_TOKEN,
     channel: '#auth0',
-    users: ['gonto', 'yenkel', 'woloski', 'eugeniop', 'cristiandouce', 'jose',
-    'pose', 'ricardorauch']
+    users: ['gonto', 'eugeniop', 'cristiandouce', 'pose']
 };
 
 var slackbot = new slackbot.Bot(config);

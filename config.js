@@ -19,14 +19,12 @@ dotenv.load();
 
 var config = {
     server: 'irc.freenode.com',
-    nick: 'auth0team',
-    username: 'auth0team',
+    nick: 'slackbot',
+    username: 'slackbot',
     token: process.env.SLACK_TOKEN,
-    channels: {
-      '#auth0': '#irc'
-    },
+    channel: '#auth0test',
     users: {
-        'Gonto': 'gonto'
+        'ElGonto': 'gonto'
     }
 };
 
@@ -36,7 +34,7 @@ slackbot.listen();
 app.post('/slack-message', function(req, res) {
   console.log("Message received");
   var text = req.body.text;
-  slackbot.post(text);
+  slackbot.post(req.body.user_name, text);
   res.send(200);
 });
 

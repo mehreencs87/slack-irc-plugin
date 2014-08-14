@@ -29,6 +29,10 @@ var config = {
 var slackbot = new slackbot.Bot(config);
 slackbot.listen();
 
+app.get('/ping', function(req, res) {
+  res.send(200);
+});
+
 app.post('/slack-message', function(req, res) {
   if (req.body.user_name !== config.nick && req.body.user_name !== config.username)  {
     var text = req.body.text;

@@ -35,7 +35,7 @@ slackbot.listen();
 
 app.post('/slack-message', function(req, res) {
   console.log("Message received");
-  var text = req.body.text.replace(/@?irc[ ]?:?/, '');
+  var text = req.body.text;
   slackbot.post(text);
   res.send(200);
 });

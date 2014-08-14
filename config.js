@@ -19,7 +19,7 @@ dotenv.load();
 
 var config = {
     server: 'irc.freenode.com',
-    nick: 'ircbot',
+    nick: 'auth0team',
     username: 'auth0team',
     token: process.env.SLACK_TOKEN,
     channels: {
@@ -35,7 +35,7 @@ slackbot.listen();
 
 app.post('/slack-message', function(req, res) {
   console.log("Message received");
-  var text = req.body.text.replace(/@?ircbot[ ]?:?/, '');
+  var text = req.body.text.replace(/@?irc[ ]?:?/, '');
   slackbot.post(text);
   res.send(200);
 });

@@ -33,6 +33,7 @@ slackbot.listen();
 
 app.post('/slack-message', function(req, res) {
   console.log("Message received");
+  console.log(req.body.user_name);
   var text = req.body.text;
   slackbot.post(req.body.user_name, text);
   res.send(200);

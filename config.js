@@ -23,10 +23,8 @@ var config = {
     username: 'slackbot',
     token: process.env.SLACK_TOKEN,
     channel: '#auth0test',
-    users: {
-        'gonto': 'gonto',
-        'yenkel': 'yenkel'
-    }
+    users: ['gonto', 'yenkel', 'woloski', 'eugeniop', 'cristiandouce', 'jose',
+    'pose', 'ricardorauch']
 };
 
 var slackbot = new slackbot.Bot(config);
@@ -35,9 +33,18 @@ slackbot.listen();
 app.post('/slack-message', function(req, res) {
   if (req.body.user_name !== config.nick && req.body.user_name !== config.username)  {
     var text = req.body.text;
-    slackbot.post(req.body.user_name, text);
+    var sent = slackbot.post(req.body.user_name, text);
+    if (sent) {
+      res.send(200);
+    } else {
+      res.send(200, {
+        text: "You cannot send messages to IRC until your name is mapped in the config"
+      });
+    }
+  } else {
+    res.send(200);
   }
-  res.send(200);
+
 });
 
 var port = process.env.PORT || 3000;

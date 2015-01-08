@@ -24,7 +24,7 @@ var config = {
     token: process.env.SLACK_TOKEN,
     channel: '#auth0',
     users: ['gonto', 'eugeniop', 'cristiandouce1', 'pose', 'sandrino',
-      'rodrigo', 'preller']
+      'rolodato', 'preller']
 };
 
 var slackbot = new slackbot.Bot(config);
